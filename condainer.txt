@@ -1,0 +1,1 @@
+ docker run --gpus all -it -v "/home/yuki/clone/deep-learning-from-scratch-2:/home/yuki/clone/deep-learning-from-scratch-2:rw" cupy/cupy

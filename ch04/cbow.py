@@ -1,6 +1,7 @@
 # coding: utf-8
 import sys
-sys.path.append('..')
+
+sys.path.append("..")
 from common.np import *  # import numpy as np
 from common.layers import Embedding
 from ch04.negative_sampling_layer import NegativeSamplingLoss
@@ -11,8 +12,8 @@ class CBOW:
         V, H = vocab_size, hidden_size
 
         # 重みの初期化
-        W_in = 0.01 * np.random.randn(V, H).astype('f')
-        W_out = 0.01 * np.random.randn(V, H).astype('f')
+        W_in = 0.01 * np.random.randn(V, H).astype("f")
+        W_out = 0.01 * np.random.randn(V, H).astype("f")
 
         # レイヤの生成
         self.in_layers = []
@@ -33,6 +34,7 @@ class CBOW:
 
     def forward(self, contexts, target):
         h = 0
+        # print(contexts)
         for i, layer in enumerate(self.in_layers):
             h += layer.forward(contexts[:, i])
         h *= 1 / len(self.in_layers)
